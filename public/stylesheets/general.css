@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+  
+  
+  a {
+    color: #00B7FF;
+    text-decoration: none;
+  }
+  
+
+  :root {
+    --color01 : green ;
+    --color02 : blue;
+
+  }
+  
+ 

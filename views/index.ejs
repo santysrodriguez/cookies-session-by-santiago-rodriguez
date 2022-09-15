@@ -1,0 +1,57 @@
+<%- include('./partials/head', {title:"Session & Cookies"}) %>
+
+
+<% if (locals.userLogin) { %>
+  <%- include('./partials/colorBody') %> 
+<% } else{ %>
+  <body class="index_body">
+<% } %>
+
+
+
+    <header class="index_header">
+      <h1>SECCION & COOKIES</h1>
+    </header>
+    <main class="index_main">
+      <section class="index_section">
+        <h1> Carga Información</h1>
+
+        <form action="/validacion" method="POST">
+
+          <div class="form_cont">
+            <label class="label" for="name">Ingrese su nombre</label>
+            <input class="form_input" type="text" id="name" name="nombre" value="<%= locals.old && old.nombre ? old.nombre : null %>">
+            <small class="alert"><%= locals.errors && errors.nombre ? errors.nombre.msg : null %></small>
+          </div>
+          <div class="form_cont">
+            <label class="label" for="email">Ingrese su email</label>
+            <input class="form_input" type="email" id="email" name="email" value="<%= locals.old && old.email ? old.email : null %>">
+            <small class="alert"><%= locals.errors && errors.email ? errors.email.msg : null %></small>
+          </div>
+          <div class="form_cont">
+            <label class="label" for="edad">Ingrese su edad :</label>
+            <input class="form_edad" type="number" id="edad" name="edad" value="18"> <br>
+            <small class="alert"><%= locals.errors && errors.edad ? errors.edad.msg : null %></small>
+          </div>
+           <div class="form_cont">
+            <select name="colores" id="colores" >
+              <option value="" hidden selected >Seleccione un color ...</option>
+              <% colors.forEach(color => { %>
+                 <option value = "<%= color %>"><%= color %></option> 
+              <% }) %>
+            </select>
+            <input type="checkbox" name="saveColor"> 
+            <label class="label-load" for="">Guardar Color</label>
+          </div>
+
+          <div class="button_cont">
+            <a class="Boton" href="/destroy" type="reset">Olvidar Color</a>
+            <button class="Boton" type="submit">Enviar</button>
+          </div>
+        </form>
+
+      </section>
+    </main>
+
+  </body>
+</html>

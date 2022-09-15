@@ -1,0 +1,32 @@
+<%- include('./partials/head', {title:"Mensaje"}) %>
+
+
+<% if (locals.userLogin) { %>
+  <%- include('./partials/colorBody') %> 
+<% } else{ %>
+  <body class="index_body">
+<% } %>
+
+    <header class="index_header">
+      <h1>SECCION & COOKIES</h1>
+    </header>
+    <main class="index_main">
+      <section class="index_section">
+        <h1 class="" >MENSAJE</h1>
+        <p class="mensaje">
+          Hola <%= locals.userLogin.nombre%>, <% if (locals.userLogin.colores=="") { %>
+             no elegiste color,
+          <% }else{ %>
+            elegiste el color <%= locals.userLogin.colores %>,
+          <% } %>
+                    
+          tu email es <%= locals.userLogin.email %> y tienes <%= locals.userLogin.edad %> años de edad 
+        </p>
+        <div class="button_cont">
+          <a class="Boton" href="../users/logout">Continuar</a>
+        </div>
+      </section>
+    </main>
+
+  </body>
+</html>
